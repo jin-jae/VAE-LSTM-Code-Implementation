@@ -38,7 +38,7 @@ class DataGenerator(BaseDataGenerator):
     axs.set_ylabel("readings")
     axs.set_title("{} dataset\n(normalised by train mean {:.4f} and std {:.4f})".format(dataset, train_m, train_std))
     axs.legend(('data', 'train test set split', 'anomalies'))
-    savefig(self.config['result_dir'] + '/raw_data_normalised.pdf')
+    savefig(self.config['result_dir'] + '/raw_data_normalised.png')
 
     # slice training set into rolling windows
     n_train_sample = len(data['training'])
