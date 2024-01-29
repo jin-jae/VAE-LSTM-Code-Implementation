@@ -1,5 +1,6 @@
 import os
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from data_loader import DataGenerator
 from models import VAEmodel, lstmKerasModel
 from trainers import vaeTrainer

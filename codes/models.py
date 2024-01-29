@@ -3,7 +3,9 @@ import os
 import numpy as np
 import matplotlib.pylab as plt
 from matplotlib.pyplot import savefig
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+import tf_slim as slim
 import tensorflow_probability as tfp
 
 tfd = tfp.distributions
@@ -35,7 +37,7 @@ class VAEmodel(BaseModel):
     self.sigma2_offset = tf.constant(self.config['sigma2_offset'])
 
   def build_model(self):
-    init = tf.contrib.layers.xavier_initializer()
+    init = slim.xavier_initializer()
     with tf.variable_scope('encoder'):
       input_tensor = tf.expand_dims(self.original_signal, -1)
       if self.config['l_win'] == 24:
